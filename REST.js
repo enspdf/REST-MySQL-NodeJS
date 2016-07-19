@@ -18,6 +18,16 @@ REST_ROUTER.prototype.handleRoutes = function(router, connection, md5) {
                 res.json({"Error": true, "Message": "Error executing MySQL query"});
             } else {
                 res.json({"Error": false, "Message": "User Added! ", "id" : rows.insertId});
+                /*var query2 = "INSERT INTO ??(??,??,??) VALUES (?,?,?)";
+                var table2 = ["user_info", "user_id_fk", "user_name", "user_location", rows.insertId, req.body.user_name, req.body.user_location];
+                query2 = mysql.format(query2, table2);
+                connection.query(query2, function(err, data){
+                   if (err) {
+                       res.json({"Error": true, "Message": "Error inserting data in user_info"});
+                   } else {
+                       res.json({"Error": false, "Message": "User and user_info added !"});
+                   }
+                });*/
             }
         });
     });
